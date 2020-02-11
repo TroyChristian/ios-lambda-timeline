@@ -8,6 +8,16 @@
 
 import UIKit
 import Photos
+import CoreImage
+import CoreImage.CIFilterBuiltins
+
+enum FilterType {
+    case sepia
+    case blackAndWhite
+    case blur
+    case sharpen
+    case negative
+}
 
 class ImagePostViewController: ShiftableViewController {
     
