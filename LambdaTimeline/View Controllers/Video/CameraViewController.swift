@@ -98,8 +98,12 @@ class CameraViewController: UIViewController {
         // front / back
         // wide angle, ultra wide angle, depth, zoom lens
         // try ultra wide lens
-        if let device = AVCaptureDevice.default(.builtInUltraWideCamera, for: .video, position: .back) {
-            return device
+        if #available(iOS 13.0, *) {
+            if let device = AVCaptureDevice.default(.builtInUltraWideCamera, for: .video, position: .back) {
+                return device
+            }
+        } else {
+            // Fallback on earlier versions
         }
         // try wide angle lens
         if let device = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back) {
